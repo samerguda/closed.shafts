@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closed Shafts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: green;
+        }
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .button-container button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .table-container {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        th, td {
+            border: 1px solid green;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: green;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #d4edda;
+        }
+        tr:nth-child(odd) {
+            background-color: #c3e6cb;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Closed Shafts</h1>
+    <div class="button-container">
+        <button onclick="window.print()">Print</button>
+        <button onclick="copyTable()">Copy</button>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Shaft</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <tr><td>1</td><td>45+001.70 DS 13</td><td>Closed Shaft</td></tr>
+                <tr><td>2</td><td>41-229 vs 24</td><td>Closed Shaft</td></tr>
+                <tr><td>3</td><td>40+514 vs (23)</td><td>Closed Shaft</td></tr>
+                <tr><td>4</td><td>37+715 vs 22</td><td>Closed Shaft</td></tr>
+                <tr><td>5</td><td>30+887 v18</td><td>Closed Shaft</td></tr>
+                <tr><td>6</td><td>washout km 18</td><td>Closed Shaft</td></tr>
+                <tr><td>7</td><td>17+712 vs 16</td><td>Closed Shaft</td></tr>
+                <tr><td>8</td><td>88+994</td><td>Closed Shaft</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function copyTable() {
+            const range = document.createRange();
+            range.selectNode(document.getElementById('table-body'));
+            window.getSelection().removeAllRanges(); 
+            window.getSelection().addRange(range); 
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            alert('Table copied to clipboard');
+        }
+    </script>
+</body>
+</html>
